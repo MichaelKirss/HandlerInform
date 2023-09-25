@@ -1,1 +1,4 @@
 org\skillfactory\main\Main.class
+org\skillfactory\model\University.class
+org\skillfactory\model\StudyProfile.class
+org\skillfactory\model\Student.class
