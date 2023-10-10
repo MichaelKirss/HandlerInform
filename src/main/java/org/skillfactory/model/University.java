@@ -14,6 +14,9 @@ public class University {
         this.yearOfFoundation = yearOfFoundation;
         this.mainProfile = mainProfile;
     }
+    public University(){
+
+    }
 
     public String getId() {
         return id;
@@ -56,7 +59,7 @@ public class University {
     }
     @Override
     public String toString(){
-        return  "Класс  " + getClass().getSimpleName() +  "\n"  +
+        return  "\n"  +"Университет" +  "\n"  +
                 "Идентификатор   " +this.id +"\n"+
                 "Полное наименование университета  " + this.fullName + "\n"+
                 "Короткое наименование университета  " + this.shortName + "\n"+

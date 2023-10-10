@@ -1,4 +1,6 @@
 org\skillfactory\main\Main.class
+org\skillfactory\load\ExcelLoader.class
+org\skillfactory\load\WorkSheet.class
 org\skillfactory\model\University.class
 org\skillfactory\model\StudyProfile.class
 org\skillfactory\model\Student.class

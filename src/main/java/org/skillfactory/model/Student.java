@@ -12,6 +12,9 @@ public class Student {
         this.currentCourseNumber = currentCourseNumber;
         this.avgExamScore = avgExamScore;
     }
+    public Student(){
+
+    }
 
     public String getFullName() {
         return fullName;
@@ -46,7 +49,7 @@ public class Student {
     }
     @Override
     public String toString(){
-      return  "Класс  " + getClass().getSimpleName() +  "\n"  +
+      return  "\n" + "Студент"  +  "\n"  +
               "Полное имя   " +this.fullName +"\n"+
               "Университет  " + this.universityId + "\n"+
               "Курс  " +this.currentCourseNumber+ "\n"+
