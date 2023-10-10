@@ -1,5 +1,10 @@
 package org.skillfactory.main;
 
+import org.skillfactory.comparators.StudentComparator;
+import org.skillfactory.comparators.UniversityComparator;
+import org.skillfactory.comparators.choice.ChoiceTypeComparator;
+import org.skillfactory.comparators.enums.StudentComparators;
+import org.skillfactory.comparators.enums.UniversityComparators;
 import org.skillfactory.model.Student;
 import org.skillfactory.model.University;
 
@@ -14,10 +19,14 @@ public class Main {
         String nameFile ="src/main/resources/universityinfo.xlsx";
         ArrayList<Student> s =(ArrayList<Student>) parserStudent(nameFile);
         ArrayList<University> u = (ArrayList<University>) parserUniversity(nameFile);
-        System.out.println("Список студентов");
-        System.out.println(s.toString());
-        System.out.println("Список Университетов");
-        System.out.println(u.toString());
+        UniversityComparator universityComparator =
+        ChoiceTypeComparator.UniversitysComparatorsChoice(UniversityComparators.YEAR);
+        StudentComparator studentComparator =
+        ChoiceTypeComparator.StudentsComparatorsChoice(StudentComparators.AVG_EXAM_SCORE);
+        System.out.println("Университеты");
+        u.stream().sorted(universityComparator).forEach(System.out::println);
+        System.out.println("Студенты");
+        s.stream().sorted(studentComparator).forEach(System.out::println);
     }
 
 }
