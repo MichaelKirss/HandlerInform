@@ -1,9 +1,17 @@
 package org.skillfactory.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serial;
+
 public class Student {
+    @SerializedName("Полное имя")
     private String fullName;
+    @SerializedName("Идентификатор университета")
     private String universityId;
+    @SerializedName("Курс")
     private int currentCourseNumber;
+    @SerializedName("Средний балл")
     private float avgExamScore;
 
     public Student(String fullName, String  universityId, int currentCourseNumber,float avgExamScore) {
@@ -51,7 +59,7 @@ public class Student {
     public String toString(){
       return  "\n" + "Студент"  +  "\n"  +
               "Полное имя   " +this.fullName +"\n"+
-              "Университет  " + this.universityId + "\n"+
+              "Идентификатор университета  " + this.universityId + "\n"+
               "Курс  " +this.currentCourseNumber+ "\n"+
               "Средний балл  "+this.avgExamScore+ "\n";
     }
