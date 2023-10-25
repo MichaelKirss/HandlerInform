@@ -17,7 +17,7 @@ import static org.skillfactory.utilites.JsonUtil.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String nameFile ="src/main/resources/universityinfo.xlsx";
+        String nameFile ="src/main/resources/universityInfo.xlsx";
         ArrayList<Student> s =(ArrayList<Student>) parserStudent(nameFile);
         ArrayList<University> u = (ArrayList<University>) parserUniversity(nameFile);
         UniversityComparator universityComparator =
