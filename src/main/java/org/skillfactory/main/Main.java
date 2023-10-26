@@ -11,8 +11,8 @@ import org.skillfactory.model.University;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.skillfactory.load.ExcelLoader.parserStudent;
-import static org.skillfactory.load.ExcelLoader.parserUniversity;
+import static org.skillfactory.external.ExcelLoader.parserStudent;
+import static org.skillfactory.external.ExcelLoader.parserUniversity;
 import static org.skillfactory.utilites.JsonUtil.*;
 
 public class Main {

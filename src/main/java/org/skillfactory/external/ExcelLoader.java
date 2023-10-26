@@ -1,4 +1,4 @@
-package org.skillfactory.load;
+package org.skillfactory.external;
 
 
 import java.io.FileInputStream;
@@ -18,7 +18,6 @@ public class ExcelLoader {
     static ArrayList<University> universities;
     static final String uniSheet = "Университеты";
     static final String stdSheet = "Студенты";
-
     static XSSFSheet tmpSheet;
 
     private ExcelLoader() {}

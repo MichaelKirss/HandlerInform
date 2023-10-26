@@ -1,4 +1,4 @@
-package org.skillfactory.load;
+package org.skillfactory.external;
 
 public enum WorkSheet {
     UNIVERSITY ("Университеты"),
