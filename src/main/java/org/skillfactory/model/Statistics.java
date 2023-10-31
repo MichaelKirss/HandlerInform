@@ -15,6 +15,8 @@ public class Statistics {
         this.nameUniversity = nameUniversity;
     }
 
+    public Statistics() { }
+
     public StudyProfile getProfile() {
         return profile;
     }

@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 public class StatisticsCount {
 
-    public ArrayList<Statistics> counting (ArrayList<Student> students, ArrayList<University> universitys,){
-        ArrayList<Statistics> stat = new ArrayList<>();
-        return stat;
+    public ArrayList<Statistics> counting (ArrayList<Student> students,
+                                           ArrayList<University> universitys){
+        ArrayList<Statistics> result =new ArrayList<>();
+        return  result;
+
     }
 }
