@@ -2,6 +2,7 @@ package org.skillfactory.external;
 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.*;
 import org.skillfactory.model.Statistics;
 
@@ -27,7 +28,11 @@ public class ExcelWriter {
         title.setAlignment(HorizontalAlignment.CENTER);
         common = excelFile.createCellStyle();
         common.setAlignment(HorizontalAlignment.RIGHT);
+        common.setVerticalAlignment(VerticalAlignment.CENTER);
+        common.setWrapText(true);
+
         common.setFont(styleFont(excelFile,false, HEIGHT_FONT_DEFAULT));
+
 
     }
 
@@ -45,6 +50,7 @@ public class ExcelWriter {
         setStyleBegin();
         //заголовок таблицы
         XSSFRow row = sheet.createRow(0);
+        row.setHeightInPoints(DEFAULT_ROW_WIDTH);
         for (int i =0; i<TITLE_SHEET_STATISTICS.length; i++){
             XSSFCell cell = row.createCell(i, CellType.STRING);
             cell.setCellStyle(title);
@@ -58,6 +64,7 @@ public class ExcelWriter {
         int iNum;
         for (int i =0; i < data.size(); i++){
             templateRow = sheet.createRow(i+1);
+            templateRow.setHeightInPoints(MAX_ROW_WIDTH);
             templateCell = templateRow.createCell(0, CellType.STRING);
             templateCell.setCellStyle(common);
             str = String.valueOf(data.get(i).getProfile());
