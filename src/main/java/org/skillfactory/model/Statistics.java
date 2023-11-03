@@ -6,6 +6,8 @@ public class Statistics {
     private int countStudentsProfile;
     private int countUniversityProfile;
     private String nameUniversity;
+    private String averageScoreString;
+
 
     public Statistics(StudyProfile profile, float averageScore, int countStudentsProfile, int countUniversityProfile, String nameUniversity) {
         this.profile = profile;
@@ -57,4 +59,11 @@ public class Statistics {
         this.nameUniversity = nameUniversity;
     }
 
+    public String getAverageScoreString() {
+        return averageScoreString;
+    }
+
+    public void setAverageScoreString(String averageScoreString) {
+        this.averageScoreString = averageScoreString;
+    }
 }

@@ -14,11 +14,11 @@ import org.skillfactory.model.*;
 
 
 public class ExcelLoader {
-    static ArrayList<Student> students;
-    static ArrayList<University> universities;
-    static final String uniSheet = "Университеты";
-    static final String stdSheet = "Студенты";
-    static XSSFSheet tmpSheet;
+    public static ArrayList<Student> students;
+    public static ArrayList<University> universities;
+    public static final String uniSheet = "Университеты";
+    public static final String stdSheet = "Студенты";
+    public static XSSFSheet tmpSheet;
 
     private ExcelLoader() {}
 

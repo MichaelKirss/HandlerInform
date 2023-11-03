@@ -60,7 +60,7 @@ public class ExcelWriter {
         XSSFRow templateRow;
         XSSFCell templateCell;
         String str = "";
-        float fNum;
+        String fNum;
         int iNum;
         for (int i =0; i < data.size(); i++){
             templateRow = sheet.createRow(i+1);
@@ -69,9 +69,9 @@ public class ExcelWriter {
             templateCell.setCellStyle(common);
             str = String.valueOf(data.get(i).getProfile());
             templateCell.setCellValue(str);
-            templateCell = templateRow.createCell(1, CellType.NUMERIC);
+            templateCell = templateRow.createCell(1, CellType.STRING);
             templateCell.setCellStyle(common);
-            fNum = data.get(i).getAverageScore();
+            fNum = data.get(i).getAverageScoreString();
             templateCell.setCellValue(fNum);
             templateCell = templateRow.createCell(2, CellType.NUMERIC);
             templateCell.setCellStyle(common);
