@@ -6,9 +6,12 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.*;
 import org.skillfactory.model.Statistics;
 
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import static java.util.logging.Level.INFO;
+import static java.util.logging.Level.SEVERE;
 import static org.skillfactory.utilites.Settings.*;
 
 public class ExcelWriter {
@@ -16,6 +19,7 @@ public class ExcelWriter {
     private static XSSFCellStyle common;
     private static XSSFWorkbook excelFile;
     private static XSSFSheet sheet;
+    private static final Logger log = Logger.getLogger(ExcelWriter.class.getName());
 
     private static void setStyleBegin(){
         excelFile = new XSSFWorkbook(XSSFWorkbookType .XLSX);
@@ -92,7 +96,9 @@ public class ExcelWriter {
         try{
             name.write(new FileOutputStream(fullNameFile));
             name.close();
+            log.log(INFO, "Excel file now created");
         }catch(FileNotFoundException e) {
+            log.log(SEVERE, "Excel file not created  " + e.toString());
             throw new RuntimeException(e);
             } catch (IOException e) {
             throw new RuntimeException(e);

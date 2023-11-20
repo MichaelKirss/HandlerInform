@@ -6,11 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.skillfactory.model.*;
+
+import static java.util.logging.Level.INFO;
+import static java.util.logging.Level.SEVERE;
 
 
 public class ExcelLoader {
@@ -22,9 +26,16 @@ public class ExcelLoader {
 
     private ExcelLoader() {}
 
+    private static final Logger log = Logger.getLogger(ExcelLoader.class.getName());
+
     public static void loadFile (String file, String nameSheet) throws IOException {
-        XSSFWorkbook sheets = new XSSFWorkbook(new FileInputStream(file));
-        tmpSheet = sheets.getSheet(nameSheet);
+        try {
+            XSSFWorkbook sheets = new XSSFWorkbook(new FileInputStream(file));
+            tmpSheet = sheets.getSheet(nameSheet);
+            log.log(INFO, "Excel file now Loaded");
+        } catch (IOException e){
+            log.log(SEVERE, "Excel file not found " + e.toString());
+        }
     }
 
     public static List <Student> parserStudent (String file)throws IOException{
