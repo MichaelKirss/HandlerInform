@@ -1,12 +1,20 @@
 package org.skillfactory.main;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 import org.skillfactory.comparators.*;
 import org.skillfactory.comparators.choice.ChoiceTypeComparator;
 import org.skillfactory.comparators.enums.*;
 import org.skillfactory.external.ExcelWriter;
+import org.skillfactory.external.JsonWriter;
+import org.skillfactory.external.XmlWriter;
 import org.skillfactory.model.Statistics;
 import org.skillfactory.model.*;
+
+
+import java.io.File;
+import java.util.Date;
 import java.util.logging.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,12 +23,14 @@ import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.SEVERE;
 import static org.skillfactory.external.ExcelLoader.parserStudent;
 import static org.skillfactory.external.ExcelLoader.parserUniversity;
+import static org.skillfactory.utilites.JsonUtil.desJsToList;
+import static org.skillfactory.utilites.JsonUtil.serialToJs;
 import static org.skillfactory.utilites.Settings.*;
 import static org.skillfactory.utilites.StatisticsCount.countyStat;
 
 public class Main {
     private static final Logger log = Logger.getLogger(Main.class.getName());
-    public static void main(String[] args) throws IOException, NullPointerException   {
+    public static void main(String[] args) throws Exception {
          try {
                LogManager.getLogManager().readConfiguration(
                     Main.class.getResourceAsStream("/logging.properties")
@@ -53,6 +63,19 @@ public class Main {
         listStat = countyStat(s, u);
         XSSFWorkbook book = ExcelWriter.tableGenerate(listStat);
         ExcelWriter.writeFile(book,nf);
-        log.log(INFO, "Application finished");
+        CollectorData total = new CollectorData()
+                .setStudentList(s)
+                .setUniversityList(u)
+                .setStatisticsList(listStat)
+                .setProcessDate(new Date());
+
+       XmlWriter.generateXmlReq(total);
+       JsonWriter.writeJsonReq(total);
+       log.log(INFO, "Application finished");
+
+
+
+
+
     }
 }

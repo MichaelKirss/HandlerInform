@@ -1,17 +1,26 @@
 package org.skillfactory.model;
 
 import com.google.gson.annotations.SerializedName;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
+@Root(name = "UniversityInfo")
 public class University {
-    @SerializedName("Идентификатор")
+    @SerializedName("universityId")
+    @Element(name = "universityId")
     private String id;
-    @SerializedName("Полное наименование университета")
+    @SerializedName("fullUniversityName")
+    @Element(name ="fullUniversityName")
     private String fullName;
-    @SerializedName("Короткое наименование университета")
+    @SerializedName("shortUniversityName")
+    @Element(name ="shortUniversityName")
     private String shortName;
-    @SerializedName("Год основания")
+
+    @SerializedName("yearFoundation")
+    @Element(name ="yearFoundation")
     private int yearOfFoundation;
-    @SerializedName("Специализация университета")
+    @SerializedName("mainProfile")
+    @Element(name ="mainProfile")
     private StudyProfile mainProfile;
 
     public University(String id, String fullName, String shortName, int yearOfFoundation, StudyProfile mainProfile) {

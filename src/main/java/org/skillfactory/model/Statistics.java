@@ -1,11 +1,21 @@
 package org.skillfactory.model;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
+
+@Root(name ="StatisticsInfo")
 public class Statistics {
+    @Element(name = "Profile")
     private StudyProfile profile;
+    @Element(name ="AverageScore")
     private float averageScore;
+    @Element(name = "CountStudentsProfile")
     private int countStudentsProfile;
+    @Element(name="CountUniversityPrifile")
     private int countUniversityProfile;
+    @Element(name = "NameUniversity")
     private String nameUniversity;
+    @Element(name="AverageScoreStat")
     private String averageScoreString;
 
 

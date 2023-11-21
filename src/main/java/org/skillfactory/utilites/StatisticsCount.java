@@ -14,9 +14,6 @@ import java.util.List;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static org.skillfactory.external.ExcelLoader.universities;
 
 public class StatisticsCount {
 
